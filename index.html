@@ -1,0 +1,165 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <title>Bußgeldrechner</title>
+    <link rel="icon" type="image" href="images/favicon.webp">
+
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <script src="js/tabletop.min.js"></script>
+    <script src="js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/bgrv2.js"></script>
+    <script src="js/menu.js"></script>
+</head>
+<body onload="bgrInit(); menuInit();">
+<div class="menu__wrapper">
+    <div class="menu">
+        <div class="button menu__item selected" id="calculator_menu_button">
+            Bußgeldrechner
+        </div>
+        <div class="button menu__item" id="lawyers_menu_button">
+            Rechtsanwälte
+        </div>
+        <div class="button menu__item" id="settings_menu_button">
+            Einstellungen
+        </div>
+    </div>
+    <div class="menu__icon__wrapper">
+        <div class="menu__icon">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
+    </div>
+</div>
+<div class="bgr__wrapper calculator main_window_item">
+    <div class="bgr__heading"><span>Bußgeldrechner</span></div>
+    <div class="bgr__functions">
+        <div class="bgr__searchbar">
+            <span>🔍︎</span>
+            <input type="text" name="searchtext" id="s1">
+            <button class="bgr__search__clear"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+    </div>
+    <div class="bgr__copy__notification">Fahndungstext kopiert!</div>
+
+    <div class="bgr__table">
+        <div class="bgr__table__nav"></div>
+        <a class="bgr__table__link" href="#" target="_blank">zum Gesetzbuch →</a>
+        <div class="bgr__table__header">
+            <div class="table__item paragraph">
+                Paragraph
+            </div>
+            <div class="table__item text">
+                Gesetzestext
+            </div>
+            <div class="table__item info">
+                Info
+            </div>
+            <div class="table__item exclusion">
+                Ausschließung
+            </div>
+            <div class="table__item penalty">
+                Geldstrafe
+            </div>
+            <div class="table__item wanted">
+                Haftstrafe
+            </div>
+        </div>
+    </div>
+
+    <div class="bgr__unselect button">Zurücksetzen</div>
+    <div class="bgr__infos">
+        <span class="bgr__infos__notice"></span>
+        <div class="bgr__infos__penalty">Bußgeld:
+            <output></output>
+        </div>
+        <div class="bgr__infos__wanteds">Fahndungslevel:
+            <output></output>
+        </div>
+        <div class="bgr__infos__text">Fahndungstext:
+            <output></output>
+        </div>
+    </div>
+</div>
+<div class="settings main_window_item hidden">
+    <div class="settings_wrapper">
+        <div class="bgr__settings_section">
+            <div class="bgr__settings__header">Fahndungstext</div>
+            <div class="bgr__settings__items">
+                <div class="bgr__infos__time">
+                    <div>
+                        <label>
+                            Uhrzeit hinzufügen
+                            <input type="checkbox">
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            Anzeige Art
+                            <select class="bgr__infos__text">
+                                <option value="new" selected="">Neu</option>
+                                <option value="old">Alt</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bgr__settings_section">
+            <div class="bgr__settings__header">Farben</div>
+            <div class="bgr__settings__items">
+                <div class="bgr__color">
+                    <span>Highlights</span>
+                    <input type="color" id="highlight_color">
+                </div>
+                <div class="bgr__color">
+                    <span>Hintergrund</span>
+                    <input type="color" id="background_color">
+                </div>
+                <div class="bgr__color">
+                    <span>Text</span>
+                    <input type="color" id="text_color">
+                </div>
+                <div class="bgr__color">
+                    <span>Ränder</span>
+                    <input type="color" id="border_color">
+                </div>
+                <div class="bgr__color">
+                    <span>Warnungen</span>
+                    <input type="color" id="caution_color">
+                </div>
+                <div class="bgr__color">
+                    <span>Scrollbar Hintergrund</span>
+                    <input type="color" id="scrollbar_color">
+                </div>
+
+                <div class="bgr__color__reset">
+                    <input class="button" type="button" value="Zurücksetzen">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="lawyers main_window_item hidden">
+    <div class="lawyers__wrapper">
+        <div class="lawyers__header">
+            <div class="list__header">
+                Vorname
+            </div>
+            <div class="list__header">
+                Nachname
+            </div>
+            <div class="list__header">
+                Telefon Nr.
+            </div>
+        </div>
+        <div class="lawyers__list">
+
+        </div>
+    </div>
+    <div class="legend">Legende: Zugelassen | <span class="licensed">Nicht zugelassen</span></div>
+</div>
+
+</body></html>
